@@ -631,7 +631,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="https://stephaniemoses91.github.io/portfolio/" name="submit-to-google-sheet" method="post" role="form" class="php-email-form" id="test-form">
+            <form action="https://script.google.com/macros/s/AKfycbyPnq3eGME-b58Rhco8WxQLW3T4_w0oXUYNapqG9BJqLPpgjv-EUSMruI0A57O7q1cUoA/exec"name="submit-to-google-sheet" method="post" role="form" class="php-email-form" id="test-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -658,14 +658,17 @@
               <div class="text-center"><button type="submit">Send Message </button></div>
             </form>
 
+            <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+            <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+            <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
             <script>
-              const scriptURL = 'https://script.google.com/macros/s/AKfycbzXeolFFrpJZ0K1Vur-fsZ-L5aVlXDmmDNvtUbahtZHjJEYGT0MQuL8_jEDv1d93e26zw/exec'
+              const scriptURL = 'https://script.google.com/macros/s/AKfycbyPnq3eGME-b58Rhco8WxQLW3T4_w0oXUYNapqG9BJqLPpgjv-EUSMruI0A57O7q1cUoA/exec'
               const form = document.forms['submit-to-google-sheet']
             
               form.addEventListener('submit', e => {
                 e.preventDefault()
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                  .then(response => console.log('Success!', response))
+                  .then(response => console.log('success', response))
                   .catch(error => console.error('Error!', error.message))
               })
             </script>
