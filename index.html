@@ -650,13 +650,16 @@
                 <label for="name">Message</label>
                 <textarea class="form-control" name="Message" rows="10" required></textarea>
               </div>
-              <!-- <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div> -->
-              <div class="text-center"><button type="submit"data-toggle="modal" data-target="#myModal">Send Message </button></div>
+              <div class="my-3" id="panel">
+                <div>Thank you for your message. I will get back to you as soon as possible!</div>
+              </div>
+              <div class="text-center"><button id="verifyBtn" type="submit" onclick="myFunction()">Send Message </button></div>
+
             </form>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
         
             <script>
               const scriptURL = 'https://script.google.com/macros/s/AKfycbyPnq3eGME-b58Rhco8WxQLW3T4_w0oXUYNapqG9BJqLPpgjv-EUSMruI0A57O7q1cUoA/exec'
@@ -664,16 +667,17 @@
             
               form.addEventListener('submit', e => {
                 e.preventDefault()
-                  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                  .then(response => console.log('success', response))
-                  .catch(error => console.error('Error!', error.message))
-                  window.location="https://stephaniemoses91.github.io/portfolio/";
-                  
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                  // .then(function myFunction(){
+                  //   document.getElementById("panel").style.display = "block";
+                  //   document.getElementById("test-form").reset();                    
+                  // })
+                  .then(document.getElementById("panel").style.display = "block")
+                  .then(document.getElementById("test-form").reset())
+                 
               })
             </script>
-            
-          </div>
-          </form>          
+          </div>         
         </div>
 
       </div>

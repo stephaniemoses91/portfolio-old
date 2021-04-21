@@ -988,6 +988,11 @@ section {
   background: #37b3ed;
 }
 
+#panel {
+  display: none;
+
+}
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
